@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Concert Band</title>
+<style>
+table, td, th {
+    border: 3px solid black;
+    border-collapse: separate;
+    border-spacing: 4px;
+    padding: 4px
+}
+</style>
+</head>
+<body>
+	<form action="addConcertBandServlet" method="post">
+
+		Name of Band: <input type="text" name="nameOfBand"><br />
+		Number of Members: <input type="text" name="numberOfMembers"><br />
+		Location of Band: <input type="text" name="locationOfBand"><br />
+	<!-- 	Cost of Participation: <input type="text" name="costOfParticipation"><br /> -->
+
+		Level of Band: <select name="levelOfBand">
+			<option value=1>Elementary</option>
+			<option value=2>Junior High</option>
+			<option value=3>High School</option>
+
+		</select> <input type="submit" value="Add New Concert Band" name="doThisToConcertBand"> <br /> <br />
+
+	</form>
+
+
+	<a href="index.html"> Back to Main Menu</a>
+	<br />
+
+
+</body>
+</html>
