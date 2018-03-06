@@ -8,7 +8,7 @@
 </head>
 <body>
 <form action="updatePepBandServlet" method="post">
-		Type of Props: <input type="text" name="typesOfProps" value="${marchingBandToEdit.typesOfProps }"> 
+		Playing Position: <input type="text" name="playingPosition" value="${pepBandToEdit.playingPosition }"> 
  		 
 	     Type of Event: <select name="eventId">
          <option value="1">Girl's Basketball</option>
@@ -22,7 +22,7 @@
         </select>
 	   
 	   <input	type="hidden" name="bandId" value="${pepBandToEdit.bandId }"> <br />
-		<input type="submit" value="Save Edited Pep Band">
+		<input type="submit" value="Edit Selected Pep Band">
 	</form>
 </body>
 </html>

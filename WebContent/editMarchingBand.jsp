@@ -8,6 +8,9 @@
 </head>
 <body>
 <form action="updateMarchingBandServlet" method="post">
+		
+		Band Name: <input type="text" name="nameOfBand" value="${marchingBandToEdit.nameOfBand }"> 
+ 		Band Location: <input type="text" name="locationOfBand"	value="${marchingBandToEdit.locationOfBand }"> 
 		Type of Props: <input type="text" name="typesOfProps" value="${marchingBandToEdit.typesOfProps }"> 
  		 
 	   

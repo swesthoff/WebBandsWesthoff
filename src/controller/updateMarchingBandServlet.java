@@ -39,12 +39,21 @@ public class updateMarchingBandServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		MarchingBandHelper dao = new MarchingBandHelper();
+		String nameOfBand = request.getParameter("nameOfBand");
+		String locationOfBand = request.getParameter("locationOfBand");
+	
 		String typesOfProps = request.getParameter("typesOfProps");
-		System.out.println(" to update  " + typesOfProps);
+		System.out.println(" to update props " + typesOfProps + " name: " + nameOfBand + " location: " + locationOfBand);
 		
+		String stringBandId = request.getParameter("bandId");
+		System.out.println(" to update3 " + stringBandId);
+	
 		Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 		System.out.println(" to update 2 " + tempId);
 		MarchingBand marchingBandToUpdate = dao.searchForMarchingBandById(tempId);
+		marchingBandToUpdate.setNameOfBand(nameOfBand);
+		marchingBandToUpdate.setLocationOfBand(locationOfBand);
+		
 		marchingBandToUpdate.setTypesOfProps(typesOfProps);
 		System.out.println(" to update 3 " + tempId);
 //		bandToUpdate.setNumberOfMembers(numberOfMembers);

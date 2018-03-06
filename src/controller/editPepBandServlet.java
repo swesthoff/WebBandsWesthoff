@@ -42,18 +42,21 @@ public class editPepBandServlet extends HttpServlet {
 		String act = request.getParameter("doThisToPepBand");
 		System.out.println("in Edit Pep Band Servlet: " + act);
 		PepBandHelper pbh = new PepBandHelper();
-		// PlayerHelper ph = new PlayerHelper();
+
 
 		if (act == null) {
 			getServletContext().getRequestDispatcher("/viewPepBandServlet").forward(request, response);
 		} else if (act.equals("Edit Selected Pep Band")) {
 			System.out.println("in edit selected band");
 
+			String stringBandId = request.getParameter("bandId");
+			System.out.println(" pepband to edit :: " + stringBandId);
+			
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			System.out.println("ParseINT: " + tempId);
 			PepBand bandToEdit = pbh.searchForPepBandById(tempId);
 			System.out.println("Pep Band to Edit: " + bandToEdit);
-			request.setAttribute("PepBandToEdit", bandToEdit);
+			request.setAttribute("pepBandToEdit", bandToEdit);
 			getServletContext().getRequestDispatcher("/editPepBand.jsp").forward(request, response);
 		} else if (act.equals("Delete Selected Pep Band")) {
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
@@ -65,7 +68,7 @@ public class editPepBandServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/viewPepBandServlet").forward(request, response);
 
 		} else if (act.equals("Add New Pep Band")) {
-			System.out.println(" Add New Pep Band ");
+			System.out.println(" Add New Pep Band! ");
 
 			getServletContext().getRequestDispatcher("/addPepBand.html").forward(request, response);
 	}

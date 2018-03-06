@@ -26,7 +26,7 @@
 
 			<c:forEach items="${requestScope.allPepBands}" var="currentPepBand">
 				<tr>
-					<td><input type="radio" name="id"
+					<td><input type="radio" name="bandId"
 						value="${currentPepBand.bandId}">${currentPepBand.bandId}</td>
 					<td>${currentPepBand.nameOfBand}</td>
 					<td>${currentPepBand.numberOfMembers}</td>
@@ -40,17 +40,17 @@
 			</c:forEach>
 		</table>
 		<br /> <input type="submit" value="Delete Selected Pep Band"
-			name="doThisToPepBand"><br /> <br /> <input type="submit"
-			value="Add New Pep Band" name="doThisToPepBand">
+			name="doThisToPepBand"><br /> <br /> 
+			<input type="submit"
+			value="Edit Selected Pep Band" name="doThisToPepBand">
 			<br /> 
 			<input type="submit"
 			value="Add New Pep Band" name="doThisToPepBand">
 			
 	</form>
 	<br />
-	<a href="index.html">Return Home</a>
-	<br />
-	<a href="viewPepBandServlet">View Pep Band</a>
+	<a href="index.html">Main Menu</a>
+	
 
 
 </body>

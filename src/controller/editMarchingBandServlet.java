@@ -50,12 +50,12 @@ public class editMarchingBandServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/viewMarchingBandServlet").forward(request, response);
 		} else if (act.equals("Edit Selected Marching Band")) {
 			System.out.println("in edit selected band");
-
+		
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			System.out.println("ParseINT: " + tempId);
 			MarchingBand bandToEdit = mbh.searchForMarchingBandById(tempId);
 			System.out.println("Marching Band to Edit: " + bandToEdit);
-			request.setAttribute("MarchingBandToEdit", bandToEdit);
+			request.setAttribute("marchingBandToEdit", bandToEdit);
 			getServletContext().getRequestDispatcher("/editMarchingBand.jsp").forward(request, response);
 		} else if (act.equals("Delete Selected Marching Band")) {
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
