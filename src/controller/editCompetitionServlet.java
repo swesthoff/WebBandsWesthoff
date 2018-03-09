@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Competition;
+//import model.Competition;
 
 /**
  * Servlet implementation class editCompetitionServlet
@@ -43,7 +43,7 @@ public class editCompetitionServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String act = request.getParameter("doThisToCompetition");
 		System.out.println("in Edit Competition Servlet: " + act);
-		CompetitionHelper pbh = new CompetitionHelper();
+	//	CompetitionHelper pbh = new CompetitionHelper();
 
 		if (act == null) {
 			getServletContext().getRequestDispatcher("/viewCompetitionServlet").forward(request, response);

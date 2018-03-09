@@ -15,51 +15,51 @@ public class CompetitionTesterWesthoff {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		runMenu();
+//		runMenu();
 	
 	}
-
-	private static void runMenu() {
-		// TODO Auto-generated method stub
-		boolean goAgain = true;
-		System.out.println("--- This is the Competition Menu ---");
-		while (goAgain) {
-			System.out.println("\n*  Select an item:");
-			System.out.println("*  1 -- Add a comp Band");
-			// System.out.println("* 2 -- Edit a comp Band");
-			// System.out.println("* 3 -- Delete a comp Band");
-			System.out.println("*  4 -- View the list of Competition");
-			System.out.println("*  5 -- Exit the  program");
-			// System.out.println("* 6 -- ADD Pep BAND");
-			System.out.print("*  Your selection: ");
-			int selection = in.nextInt();
-			in.nextLine();
-
-			if (selection == 1) {
-				addNewCompetition();
-				// } else if (selection == 2) {
-				// editACompetition();
-				// } else if (selection == 3) {
-				// deleteACompetition();
-			} else if (selection == 4) {
-				viewCompetitionList();
-
-			} else {
-				// lih.cleanUp();
-				System.out.println("   Goodbye!   ");
-				goAgain = false;
-			}
-		}
-	}
-
-	private static void viewCompetitionList() {
-		// TODO Auto-generated method stub
-		List<Competition> allCompetitions = ch.showAllCompetitions();
-		for (Competition ph : allCompetitions) {
-			System.out.println(ph.displayCompetitions());
-		}
-
-	}
+//
+//	private static void runMenu() {
+//		// TODO Auto-generated method stub
+//		boolean goAgain = true;
+//		System.out.println("--- This is the Competition Menu ---");
+//		while (goAgain) {
+//			System.out.println("\n*  Select an item:");
+//			System.out.println("*  1 -- Add a comp Band");
+//			// System.out.println("* 2 -- Edit a comp Band");
+//			// System.out.println("* 3 -- Delete a comp Band");
+//			System.out.println("*  4 -- View the list of Competition");
+//			System.out.println("*  5 -- Exit the  program");
+//			// System.out.println("* 6 -- ADD Pep BAND");
+//			System.out.print("*  Your selection: ");
+//			int selection = in.nextInt();
+//			in.nextLine();
+//
+//			if (selection == 1) {
+//				addNewCompetition();
+//				// } else if (selection == 2) {
+//				// editACompetition();
+//				// } else if (selection == 3) {
+//				// deleteACompetition();
+//			} else if (selection == 4) {
+//				viewCompetitionList();
+//
+//			} else {
+//				// lih.cleanUp();
+//				System.out.println("   Goodbye!   ");
+//				goAgain = false;
+//			}
+//		}
+//	}
+////
+//	private static void viewCompetitionList() {
+//		// TODO Auto-generated method stub
+//		List<Competition> allCompetitions = ch.showAllCompetitions();
+//		for (Competition ph : allCompetitions) {
+//			System.out.println(ph.displayCompetitions());
+//		}
+//
+//	}
 
 	// private static void deleteACompetition() {
 	// // TODO Auto-generated method stub
@@ -125,19 +125,19 @@ public class CompetitionTesterWesthoff {
 		//
 		// Bands toAdd = new Bands(nmbrOfMembers, bandName, locationOfBand,
 		// costOfParticipation, levelOfBand);
-		Competition toAdd = new Competition(49, "bobcats", "epworth", 1, 2, 1);
-		ch.insertCompetition(toAdd);
-
-		Competition toAdd1 = new Competition(300, "Hawks", "Iowa City", 2, 3, 1);
-		ch.insertCompetition(toAdd1);
-
-		Competition toAdd2 = new Competition(200, "BearCats", "Maryville", 1, 1, 2);
-		ch.insertCompetition(toAdd2);
-
-		Competition toAdd3 = new Competition(250, "BearCats", "Maryville", 3, 1, 2);
-		ch.insertCompetition(toAdd3);
-
-		System.out.println("Insert New Competition worked");
+//		Competition toAdd = new Competition(49, "bobcats", "epworth", 1, 2, 1);
+//		ch.insertCompetition(toAdd);
+//
+//		Competition toAdd1 = new Competition(300, "Hawks", "Iowa City", 2, 3, 1);
+//		ch.insertCompetition(toAdd1);
+//
+//		Competition toAdd2 = new Competition(200, "BearCats", "Maryville", 1, 1, 2);
+//		ch.insertCompetition(toAdd2);
+//
+//		Competition toAdd3 = new Competition(250, "BearCats", "Maryville", 3, 1, 2);
+//		ch.insertCompetition(toAdd3);
+//
+//		System.out.println("Insert New Competition worked");
 
 	}
 

@@ -27,14 +27,15 @@ public class viewCompetitionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		CompetitionHelper pbh = new CompetitionHelper();
-		request.setAttribute("allCompetition", pbh.showAllCompetitions());
-		System.out.println("View Competition");
-		if(pbh.showAllCompetitions().isEmpty()) {
-		//	getServletContext().getRequestDispatcher("/addPepBand.html").forward(request, response);
-			System.out.println("Competition - empty");
+		CompetitionHelper ch = new CompetitionHelper();
+		request.setAttribute("allCompetitions", ch.showAllCompetitions());
+		System.out.println("View Competition before IF"  );
+		if(ch.showAllCompetitions().isEmpty()) {
+			System.out.println("Competition - empty!!!");
+		//	getServletContext().getRequestDispatcher("/addCompetition.html").forward(request, response);
+			
 		}
-		System.out.println("Competition -  2" + pbh.showAllCompetitions());
+		System.out.println("Competition -  2" + ch.showAllCompetitions());
 		getServletContext().getRequestDispatcher("/viewAllCompetitions.jsp").forward(request, response);
 		System.out.println("Competition - after");
 	}

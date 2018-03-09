@@ -27,7 +27,7 @@ public class CompetitionHelper {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		// creates the query but does not execute it.
-		TypedQuery<Competition> allResults = em.createQuery("Select list_item from Competition list_item", Competition.class);
+		TypedQuery<Competition> allResults = em.createQuery("select li from Competition li", Competition.class);
 		// Selects the info
 		List<Competition> allCompetitions = allResults.getResultList();
 		// need to close the entity manager

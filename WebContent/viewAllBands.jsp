@@ -10,6 +10,8 @@
 <title>View All Bands</title>
 <style>
 table, td, th {
+
+
 	border: 1px solid black;
 	border-collapse: separate;
 	border-spacing: 2px;
@@ -23,7 +25,7 @@ h2 {
 </style>
 </head>
 <body>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_FYxnRt3tzi4900z84A-Ckk6eTqzqchv7-_wZDo7be3C-dmJx" align="middle">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIDkTGd_S3ZmR2iWlJIDM5vUg7xALhA2fmZXqm2bvJu28xgLjg" align="middle">
 <h2> View List of Concert Bands</h2>
 	<form method="post" action="editConcertBandServlet">
 		<table>

@@ -12,14 +12,14 @@
 		<table>
 		<tr> 
 			<th> </th>
-			<th>Competition Name</th>
+			<th>Competition ID</th>
 			<th>Band ID</th> 
 		</tr>
 			<c:forEach items="${requestScope.allCompetitions}" var="currentitem">
 				<tr>
-					<td><input type="radio" name="competitionId" value="${currentitem.competitionId}"></td>
-					<td>${current.getCompetitionName()}</td>
-					<td>${currentitem.getBandName()}</td> 
+			<!-- 	<td><input type="radio" name="competitionId" value="${currentitem.competitionId}"></td>  -->	
+					<td>${currentitem.getCompetitionName()}</td>
+					<td>${currentitem.bandId}</td> 
 				</tr>
 			</c:forEach>
 		</table>

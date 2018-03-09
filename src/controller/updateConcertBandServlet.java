@@ -41,12 +41,17 @@ public class updateConcertBandServlet extends HttpServlet {
 		BandHelper dao = new BandHelper();
 		String nameOfBand = request.getParameter("nameOfBand");
 		String locationOfBand = request.getParameter("locationOfBand");
-		
-		
+		Integer numberOfMembers = Integer.parseInt(request.getParameter("numberOfMembers"));
+		Integer levelOfBand = Integer.parseInt(request.getParameter("levelOfBand"));
+	//	String levelOfBand = request.getParameter("levelOfBand");
 		Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 		Bands bandToUpdate = dao.searchForBandById(tempId);
+		
 		bandToUpdate.setNameOfBand(nameOfBand);
 		bandToUpdate.setLocationOfBand(locationOfBand);
+		bandToUpdate.setNumberOfMembers(numberOfMembers);
+		bandToUpdate.setLevelOfBand(levelOfBand);
+		bandToUpdate.setCostOfParticipation(numberOfMembers, levelOfBand);
 //		bandToUpdate.setNumberOfMembers(numberOfMembers);
 		dao.updateBand(bandToUpdate);
 		getServletContext().getRequestDispatcher("/viewConcertBandServlet").forward(request, response);

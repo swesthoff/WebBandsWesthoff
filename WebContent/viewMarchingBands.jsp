@@ -23,7 +23,7 @@ h2 {
 </style>
 </head>
 <body>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ABOPsjdTWnipQQ0c4HaieQ4FdBhIw4Iqu6nQKGjeB6YE-X2kJQ"> 
+<img src="https://s3.us-east-2.amazonaws.com/hamiltoncityschoolscom/2017/09/1_marching-band-clip-art-on.jpg"> 
 <h2 > View List of Marching Bands</h2>
 	<form method="post" action="editMarchingBandServlet">
 		<table>

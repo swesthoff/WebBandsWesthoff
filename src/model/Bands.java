@@ -131,8 +131,9 @@ public class Bands {
 		return costOfParticipation;
 	}
 
-//	public void setCostOfParticipation(double costOfParticipation) {
-//		this.costOfParticipation = costOfParticipation;
+	public void setCostOfParticipation(int numberOfMembers2, int levelOfBand2) {
+		this.costOfParticipation = calcCostOfParticipation(numberOfMembers,levelOfBand);
+	}
 //	}
 
 	public String getLevelOfBand() {

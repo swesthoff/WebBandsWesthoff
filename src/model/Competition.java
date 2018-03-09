@@ -2,31 +2,38 @@ package model;
 //Sheri Westhoff
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
+//import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+//import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 //import javax.persistence.Transient;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "band_id", referencedColumnName = "band_id")
-@DiscriminatorValue(value = "partBands")
+@IdClass(CompetitionId.class)
+// @PrimaryKeyJoinColumn(name = "bandId", referencedColumnName = "bandId")
+// @DiscriminatorValue(value = "partBands")
 @Table(name = "participating_bands")
 
-public class Competition extends Bands {
-
+// public class Competition extends Bands {
+public class Competition {
+	@Id
 	@Column(name = "competition_id")
 	protected int competitionId;
-
+	@Id
 	@Column(name = "band_id")
-	private int band_id;
-	// @Transient
-	// private list<Bands> bandlist;
+	private int bandId;
 
-	public Competition(int competitionId, int band_id) {
+	@Transient
+	String competitionName;
+	
+	
+	public Competition(int competitionId, int bandId) {
 		super();
 		this.competitionId = competitionId;
-		this.band_id = band_id;
+		this.bandId = bandId;
 	}
 
 	public Competition() {
@@ -41,12 +48,13 @@ public class Competition extends Bands {
 	// // TODO Auto-generated constructor stub
 	// }
 
-	public Competition(int numberOfMembers, String nameOfBand, String locationOfBand, int levelOfBand,
-			int competitionId, int band_id) {
-		super(numberOfMembers, nameOfBand, locationOfBand, levelOfBand);
-		this.competitionId = competitionId;
-		this.band_id = band_id;
-	}
+	// public Competition(int numberOfMembers, String nameOfBand, String
+	// locationOfBand, int levelOfBand,
+	// int competitionId, int bandId) {
+	// super(numberOfMembers, nameOfBand, locationOfBand, levelOfBand);
+	// this.competitionId = competitionId;
+	// this.bandId = bandId;
+	// }
 
 	public int getCompetitionId() {
 		return competitionId;
@@ -56,40 +64,41 @@ public class Competition extends Bands {
 		this.competitionId = competitionId;
 	}
 
-	public int getBand_id() {
-		return band_id;
+	public int getbandId() {
+		return bandId;
 	}
 
-	public void setBand_id(int band_id) {
-		this.band_id = band_id;
+	public void setbandId(int bandId) {
+		this.bandId = bandId;
 	}
+
 
 	// Hardcoding competitions until we figure out how do get the information from t
 	// the table
 
-	public String displayCompetitions() {
+	public String getCompetitionName() {
 		// TODO Auto-generated method stub
-		String competitionDesc;
-		switch (competitionId) {
-		case 1:
-			competitionDesc = "Johnston Marching Competition";
-			break;
-		case 2:
-			competitionDesc = "Waukee Marching Competition";
-			break;
-		case 3:
-			competitionDesc = "SEP Marching Competition";
-			break;
-		default:
-			competitionDesc = "None";
+	
+		if (this.competitionId == 1) {
+		
+			this.competitionName  = "Johnston Marching Competition";
+		}else if (this.competitionId == 2) {
+			this.competitionName = "Waukee Marching Competition";
+		
+		}else if (this.competitionId == 3) {
+			this.competitionName = "SEP Marching Competition";
+			 
 		}
-
-		String displayCompetitions = "Competition:  Band_id " + bandId + "  | Name of Band: " + getNameOfBand()
-				+ " | Location of Band: " + getLocationOfBand()
-
-				+ " | Competition:= " + competitionDesc;
-		return displayCompetitions;
-
+	return competitionName;
 	}
-
 }
+//
+//		String displayCompetitions = "Competition:  bandId " + bandId + "  | Name of Band: " + getNameOfBand()
+//		//		+ " | Location of Band: " + getLocationOfBand()
+////
+//	//			+ " | Competition:= " + competitionDesc;
+//		return displayCompetitions;
+//
+//	}
+
+
