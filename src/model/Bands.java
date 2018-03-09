@@ -4,6 +4,7 @@ package model;
 import java.text.DecimalFormat;
 
 import javax.persistence.Column;
+
 //import javax.persistence.Convert;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -16,6 +17,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+
 
 //import controller.BandLevelAttributeConverter;
 
@@ -41,7 +44,7 @@ public class Bands {
 	private String locationOfBand;
 	@Column(name = "cost_of_participation")
 	private double costOfParticipation;
-	// @Convert(converter = BandLevelAttributeConverter.class)
+//	 @Convert(converter = BandLevelAttributeConverter.class)
 	@Column(name = "level_of_band")
 	private int levelOfBand;
 	@Column(name = "band_type")
@@ -59,7 +62,13 @@ public class Bands {
 	@Transient
 	private String levelOfBandDesc;
 	/////
-
+	@Transient
+	final int ELEMENTARY_LEVEL_ID = 1;
+	@Transient
+	final int JUNIOR_HIGH_LEVEL_ID = 2;
+	@Transient
+	final int HIGH_SCHOOL_LEVEL_ID = 3;
+	
 	public Bands() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -81,38 +90,6 @@ public class Bands {
 	//	this.bandType = bandType;
 	}
 
-//	public Bands(int numberOfMembers, String nameOfBand, String locationOfBand, double costOfParticipation,
-//			String levelOfBandDesc) {
-//		super();
-//		this.numberOfMembers = numberOfMembers;
-//		this.nameOfBand = nameOfBand;
-//		this.locationOfBand = locationOfBand;
-//		this.costOfParticipation = calcCostOfParticipation(numberOfMembers,levelOfBand);
-//		this.levelOfBandDesc = levelOfBandDesc;
-//	}
-//
-//	public Bands(int numberOfMembers, String nameOfBand, String locationOfBand, double costOfParticipation,
-//			int levelOfBand) {
-//		super();
-//		this.numberOfMembers = numberOfMembers;
-//		this.nameOfBand = nameOfBand;
-//		this.locationOfBand = locationOfBand;
-//		this.costOfParticipation = calcCostOfParticipation(numberOfMembers,levelOfBand);
-//		this.levelOfBand = levelOfBand;
-//	}
-//	
-//
-////deleted for cost of participation
-//	public Bands(int numberOfMembers, String nameOfBand, String locationOfBand, double costOfParticipation,
-//			int levelOfBand, String bandType) {
-//		super();
-//		this.numberOfMembers = numberOfMembers;
-//		this.nameOfBand = nameOfBand;
-//		this.locationOfBand = locationOfBand;
-//		this.costOfParticipation = calcCostOfParticipation(numberOfMembers,levelOfBand);
-//		this.levelOfBand = levelOfBand;
-//		this.bandType = bandType;
-//	}
 
 
 
@@ -120,9 +97,9 @@ public class Bands {
 		return bandId;
 	}
 
-	public void setBandId(int bandId) {
-		this.bandId = bandId;
-	}
+//	public void setBandId(int bandId) {
+//		this.bandId = bandId;
+//	}
 
 	public int getNumberOfMembers() {
 		return numberOfMembers;
@@ -158,8 +135,17 @@ public class Bands {
 //		this.costOfParticipation = costOfParticipation;
 //	}
 
-	public int getLevelOfBand() {
-		return levelOfBand;
+	public String getLevelOfBand() {
+		String levelOfBandDesc;
+		if (this.levelOfBand == ELEMENTARY_LEVEL_ID) {
+			levelOfBandDesc = "Elementary";
+		} else if (this.levelOfBand == JUNIOR_HIGH_LEVEL_ID) {
+			levelOfBandDesc = "Junior School";
+		} else 
+			levelOfBandDesc = "High School";
+//		} 
+		return levelOfBandDesc;
+		
 	}
 
 	public void setLevelOfBand(int levelOfBand) {
@@ -181,9 +167,9 @@ public class Bands {
 		}
 		
 		Double totalCostOfParticipation;
-		if (this.levelOfBand == 1) {
+		if (this.levelOfBand == ELEMENTARY_LEVEL_ID) {
 			totalCostOfParticipation = 0.0;
-		} else if (this.levelOfBand == 2) {
+		} else if (this.levelOfBand == JUNIOR_HIGH_LEVEL_ID) {
 			totalCostOfParticipation = JUNIOR_HIGH_COST - quantityDiscount;
 		} else {
 			totalCostOfParticipation = HIGH_SCHOOL_COST - quantityDiscount;

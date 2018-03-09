@@ -42,31 +42,23 @@ public class addConcertBandServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String nameOfBand = request.getParameter("nameOfBand");
-		System.out.println("Name of Band: " + nameOfBand);
+	//	System.out.println("Name of Band: " + nameOfBand);
 		
 		String stringNumberOfMembers = request.getParameter("numberOfMembers");
-		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
+//		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
 		int numberOfMembers = Integer.valueOf(stringNumberOfMembers);
 		
 		
 		String locationOfBand = request.getParameter("locationOfBand");
-		System.out.println("Location: " + locationOfBand);
+//		System.out.println("Location: " + locationOfBand);
 //		String stringCostOfParticipation = request.getParameter("stringCostOfParticipation");
 //		double costOfParticipation = Double.valueOf(stringCostOfParticipation);
 		String stringLevelOfBand = request.getParameter("levelOfBand");
-		System.out.println("Level: " + stringLevelOfBand);
+	//	System.out.println("Level: " + stringLevelOfBand);
 		int levelOfBand = Integer.valueOf(stringLevelOfBand);
 	//	String bandType = request.getParameter("bandType");
 	
-		
-//		String stringValue = request.getParameter("value");
-//		double value = Double.valueOf(stringValue);
-//		System.out.println("in doPost - addArtworkItemServlet " + value);
-//		System.out.println("artistname: " + artistName);
-//		System.out.println("Title: " + title);
-//		System.out.println("media: " + media);
-//		System.out.println("year: " + year);
-		
+
 		Bands band = new Bands(numberOfMembers, nameOfBand, locationOfBand, levelOfBand);
 		BandHelper dao = new BandHelper();
 

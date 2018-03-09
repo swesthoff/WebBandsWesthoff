@@ -8,7 +8,16 @@
 </head>
 <body>
 <form action="updatePepBandServlet" method="post">
-		Playing Position: <input type="text" name="playingPosition" value="${pepBandToEdit.playingPosition }"> 
+	
+	Band Name: <input type="text" name="nameOfBand" value="${pepBandToEdit.nameOfBand }"> 
+ 		Band Location: <input type="text" name="locationOfBand"	value="${pepBandToEdit.locationOfBand }"> 
+	
+		Playing Position: <select name="playingPosition">
+		
+		   <option value="Standing">Standing</option>
+         <option value="Sitting">Sitting</option> 
+		  </select>
+		
  		 
 	     Type of Event: <select name="eventId">
          <option value="1">Girl's Basketball</option>

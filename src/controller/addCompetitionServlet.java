@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import model.Competition;
 
 /**
- * Servlet implementation class viewConcertBandServlet
+ * Servlet implementation class addCompetitionServlet
  */
-@WebServlet("/viewConcertBandServlet")
-public class viewConcertBandServlet extends HttpServlet {
+@WebServlet("/addCompetitionServlet")
+public class addCompetitionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public viewConcertBandServlet() {
+    public addCompetitionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,16 +29,7 @@ public class viewConcertBandServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		BandHelper bh = new BandHelper();
-		request.setAttribute("allBands", bh.showAllBands());
-//		System.out.println("viewallBandsServlet - allBands 1");
-		if(bh.showAllBands().isEmpty()) {
-			getServletContext().getRequestDispatcher("/addConcertBand.html").forward(request, response);
-//			System.out.println("viewallBandsServlet - allBands - empty");
-		}
-//		System.out.println("viewConcertBandServlet - allTeams 2" + bh.showAllBands());
-		getServletContext().getRequestDispatcher("/viewAllBands.jsp").forward(request, response);
-//		System.out.println("viewConcertBandServlet - after");
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -46,7 +37,17 @@ public class viewConcertBandServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String competitionIdStr = request.getParameter("competition id");
+		String bandIdStr = request.getParameter("band id");  
+		
+		int competitionId = Integer.valueOf(competitionIdStr);
+		int bandId = Integer.valueOf(bandIdStr);
+ 
+		Competition li = new Competition(competitionId, bandId);
+		CompetitionHelper dao = new CompetitionHelper();
+		dao.insertCompetition(li);
+
+		getServletContext().getRequestDispatcher("/addCompetition.html").forward(request, response);
 	}
 
 }

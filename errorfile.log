@@ -1,2 +1,8 @@
-[EL Info]: 2018-03-05 21:20:33.456--ServerSession(681619251)--EclipseLink, version: Eclipse Persistence Services - 2.6.0.v20150309-bf26070
-[EL Info]: connection: 2018-03-05 21:20:33.831--ServerSession(681619251)--/file:/C:/Users/java user/Desktop/Homework Assignments/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WebBandsWesthoff/WEB-INF/classes/_WebBandsWesthoff login successful
+[EL Info]: 2018-03-08 21:27:30.121--ServerSession(1857640265)--EclipseLink, version: Eclipse Persistence Services - 2.6.0.v20150309-bf26070
+[EL Info]: connection: 2018-03-08 21:27:30.455--ServerSession(1857640265)--/file:/C:/Users/java user/Desktop/Homework Assignments/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WebBandsWesthoff/WEB-INF/classes/_WebBandsWesthoff login successful
+[EL Warning]: 2018-03-08 21:27:38.993--UnitOfWork(1231834477)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.0.v20150309-bf26070): org.eclipse.persistence.exceptions.DatabaseException
+Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`finearts`.`band`, CONSTRAINT `band_ibfk_1` FOREIGN KEY (`level_of_band`) REFERENCES `band_level` (`band_level_id`))
+Error Code: 1452
+Call: INSERT INTO band (band_type, cost_of_participation, level_of_band, location_of_band, name_of_band, num_of_members) VALUES (?, ?, ?, ?, ?, ?)
+	bind => [6 parameters bound]
+Query: InsertObjectQuery(model.Competition@4cb4de28)

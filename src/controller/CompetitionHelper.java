@@ -35,6 +35,11 @@ public class CompetitionHelper {
 		return allCompetitions;
 	}
 
+//	public Competition searchForCompeitionById(Integer tempId) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
 //	public void deleteCompetition(Competition toDelete) {
 //		// TODO Auto-generated method stub
 //		EntityManager em = emfactory.createEntityManager();

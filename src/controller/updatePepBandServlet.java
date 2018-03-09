@@ -39,6 +39,10 @@ public class updatePepBandServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PepBandHelper dao = new PepBandHelper();
+		
+		String nameOfBand = request.getParameter("nameOfBand");
+		String locationOfBand = request.getParameter("locationOfBand");
+		
 		String playingPosition = request.getParameter("playingPosition");
 		System.out.println(" to update  " + playingPosition);
 		Integer eventId = Integer.parseInt(request.getParameter("eventId"));
@@ -50,6 +54,9 @@ public class updatePepBandServlet extends HttpServlet {
 //		bandToUpdate.setNumberOfMembers(numberOfMembers);
 		pepBandToUpdate.setPlayingPosition(playingPosition);
 		pepBandToUpdate.setEventId(eventId);
+		pepBandToUpdate.setNameOfBand(nameOfBand);
+		pepBandToUpdate.setLocationOfBand(locationOfBand);
+		
 		dao.updatePepBand(pepBandToUpdate);
 		getServletContext().getRequestDispatcher("/viewPepBandServlet").forward(request, response);
 	}
