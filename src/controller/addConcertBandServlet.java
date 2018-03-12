@@ -46,6 +46,13 @@ public class addConcertBandServlet extends HttpServlet {
 		
 		String stringNumberOfMembers = request.getParameter("numberOfMembers");
 //		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
+		try { 
+	        Integer.parseInt(stringNumberOfMembers); 
+	    } catch(NumberFormatException e) { 
+	    	getServletContext().getRequestDispatcher("/concertBandNumericError.jsp").forward(request, response);
+	    } catch(NullPointerException e) {
+	    	getServletContext().getRequestDispatcher("/concertBandNumericError.jsp").forward(request, response);
+	    }
 		int numberOfMembers = Integer.valueOf(stringNumberOfMembers);
 		
 		

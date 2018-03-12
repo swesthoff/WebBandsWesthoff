@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="updateConcertBandServlet" method="post">
-		Band Name: <input type="text" name="nameOfBand" value="${concertBandToEdit.nameOfBand }"> 
- 		Band Location: <input type="text" name="locationOfBand"	value="${concertBandToEdit.locationOfBand }"> 
- 		Number of Members: <input type="text" name="numberOfMembers"	value="${concertBandToEdit.numberOfMembers }"> 
+		Band Name: <input type="text" name="nameOfBand" value="${concertBandToEdit.nameOfBand }"> <br />
+ 		Band Location: <input type="text" name="locationOfBand"	value="${concertBandToEdit.locationOfBand }"> <br />
+ 		Number of Members: <input type="text" name="numberOfMembers"	value="${concertBandToEdit.numberOfMembers }"> <br />
  	
  		
  			Level Of Band <select name="levelOfBand">
@@ -20,8 +20,8 @@
              <option value=3>High School</option> 
 		  </select>
 		
- 		
-	   <input	type="hidden" name="bandId" value="${concertBandToEdit.bandId }"> <br />
+ 		<br />
+	   <input	type="hidden" name="bandId" value="${concertBandToEdit.bandId }"> <br /><br />
 		<input type="submit" value="Save Edited Concert Band">
 	</form>
 </body>

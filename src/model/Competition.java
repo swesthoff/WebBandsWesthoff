@@ -11,6 +11,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 //import javax.persistence.Transient;
 
+import controller.BandHelper;
+
 @Entity
 @IdClass(CompetitionId.class)
 // @PrimaryKeyJoinColumn(name = "bandId", referencedColumnName = "bandId")
@@ -28,7 +30,8 @@ public class Competition {
 
 	@Transient
 	String competitionName;
-	
+	@Transient
+	String bandName;
 	
 	public Competition(int competitionId, int bandId) {
 		super();
@@ -91,6 +94,14 @@ public class Competition {
 		}
 	return competitionName;
 	}
+
+   public String getBandName() {
+		BandHelper bh = new BandHelper();
+		//request.setAttribute("foundItem", bh.searchForBandNameById(bandId));
+	   return bandName;
+   }
+	
+	
 }
 //
 //		String displayCompetitions = "Competition:  bandId " + bandId + "  | Name of Band: " + getNameOfBand()

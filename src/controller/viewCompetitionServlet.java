@@ -35,7 +35,18 @@ public class viewCompetitionServlet extends HttpServlet {
 		//	getServletContext().getRequestDispatcher("/addCompetition.html").forward(request, response);
 			
 		}
+		
+		BandHelper bh = new BandHelper();
+		request.setAttribute("allMarchingBands", bh.showAllMarchingBands());
+		System.out.println("View Competition search for band name BF"  );
+		if(bh.showAllMarchingBands().isEmpty()) {
+			System.out.println("Competition - band name empty!!!");
+		//	getServletContext().getRequestDispatcher("/addCompetition.html").forward(request, response);
+			
+		}
+		
 		System.out.println("Competition -  2" + ch.showAllCompetitions());
+		System.out.println("Competition -  search for 2" + bh.showAllMarchingBands());
 		getServletContext().getRequestDispatcher("/viewAllCompetitions.jsp").forward(request, response);
 		System.out.println("Competition - after");
 	}

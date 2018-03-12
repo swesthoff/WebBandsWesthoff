@@ -1,8 +1,2 @@
-[EL Info]: 2018-03-09 15:01:18.526--ServerSession(546399929)--EclipseLink, version: Eclipse Persistence Services - 2.6.0.v20150309-bf26070
-[EL Info]: connection: 2018-03-09 15:01:18.841--ServerSession(546399929)--/file:/C:/Users/java user/Desktop/Homework Assignments/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WebBandsWesthoff/WEB-INF/classes/_WebBandsWesthoff login successful
-[EL Warning]: 2018-03-09 15:02:50.527--UnitOfWork(2100256737)--Exception [EclipseLink-4002] (Eclipse Persistence Services - 2.6.0.v20150309-bf26070): org.eclipse.persistence.exceptions.DatabaseException
-Internal Exception: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '2-33' for key 'PRIMARY'
-Error Code: 1062
-Call: INSERT INTO participating_bands (competition_id, band_id) VALUES (?, ?)
-	bind => [2 parameters bound]
-Query: InsertObjectQuery(model.Competition@7db7df3b)
+[EL Info]: 2018-03-11 21:42:12.485--ServerSession(1067564430)--EclipseLink, version: Eclipse Persistence Services - 2.6.0.v20150309-bf26070
+[EL Info]: connection: 2018-03-11 21:42:12.819--ServerSession(1067564430)--/file:/C:/Users/java user/Desktop/Homework Assignments/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/WebBandsWesthoff/WEB-INF/classes/_WebBandsWesthoff login successful

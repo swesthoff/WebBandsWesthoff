@@ -4,12 +4,12 @@ body {
 }
 
 h1 {
-    color: navy;
+    color: blue;
     margin-left: 20px;
 }
 
 h2 {
-	color: #00008B;
+	color: #ff8000;
 }
 
 img {
@@ -18,3 +18,12 @@ img {
     padding: 5px;
     width: 150px;
 }
+
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate;
+	border-spacing: 2px;
+	padding: 2px;
+}
+
+

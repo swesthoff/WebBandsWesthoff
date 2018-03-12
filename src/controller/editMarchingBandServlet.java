@@ -50,7 +50,15 @@ public class editMarchingBandServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/viewMarchingBandServlet").forward(request, response);
 		} else if (act.equals("Edit Selected Marching Band")) {
 			System.out.println("in edit selected band");
-		
+			
+			String stringBandId = request.getParameter("bandId");
+			try { 
+		        Integer.parseInt(stringBandId); 
+		    } catch(NumberFormatException e) { 
+		    	getServletContext().getRequestDispatcher("/marchingBandNoBandIdError.jsp").forward(request, response);
+		    } catch(NullPointerException e) {
+		    	getServletContext().getRequestDispatcher("/marchingBandNoBandIdError.jsp").forward(request, response);
+		    }
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			System.out.println("ParseINT: " + tempId);
 			MarchingBand bandToEdit = mbh.searchForMarchingBandById(tempId);
@@ -58,6 +66,15 @@ public class editMarchingBandServlet extends HttpServlet {
 			request.setAttribute("marchingBandToEdit", bandToEdit);
 			getServletContext().getRequestDispatcher("/editMarchingBand.jsp").forward(request, response);
 		} else if (act.equals("Delete Selected Marching Band")) {
+			String stringBandId = request.getParameter("bandId");
+			try { 
+		        Integer.parseInt(stringBandId); 
+		    } catch(NumberFormatException e) { 
+		    	getServletContext().getRequestDispatcher("/marchingBandNoBandIdError.jsp").forward(request, response);
+		    } catch(NullPointerException e) {
+		    	getServletContext().getRequestDispatcher("/marchingBandNoBandIdError.jsp").forward(request, response);
+		    }
+			
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			MarchingBand marchingBandToDelete = mbh.searchForMarchingBandById(tempId);
 

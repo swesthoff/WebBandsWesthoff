@@ -7,23 +7,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
 <title>View All Bands</title>
+</head>
 <style>
 table, td, th {
-
-
 	border: 1px solid black;
 	border-collapse: separate;
 	border-spacing: 2px;
 	padding: 2px;
 }
-h2 {
-  color: green;
-  
-}  
+
 
 </style>
-</head>
 <body>
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIDkTGd_S3ZmR2iWlJIDM5vUg7xALhA2fmZXqm2bvJu28xgLjg" align="middle">
 <h2> View List of Concert Bands</h2>

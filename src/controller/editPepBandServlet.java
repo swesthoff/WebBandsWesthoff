@@ -51,7 +51,14 @@ public class editPepBandServlet extends HttpServlet {
 
 			String stringBandId = request.getParameter("bandId");
 			System.out.println(" pepband to edit :: " + stringBandId);
-			
+		
+			try { 
+		        Integer.parseInt(stringBandId); 
+		    } catch(NumberFormatException e) { 
+		    	getServletContext().getRequestDispatcher("/pepBandNoBandIdError.jsp").forward(request, response);
+		    } catch(NullPointerException e) {
+		    	getServletContext().getRequestDispatcher("/pepBandNoBandIdError.jsp").forward(request, response);
+		    }
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			System.out.println("ParseINT: " + tempId);
 			PepBand bandToEdit = pbh.searchForPepBandById(tempId);
@@ -59,6 +66,15 @@ public class editPepBandServlet extends HttpServlet {
 			request.setAttribute("pepBandToEdit", bandToEdit);
 			getServletContext().getRequestDispatcher("/editPepBand.jsp").forward(request, response);
 		} else if (act.equals("Delete Selected Pep Band")) {
+			
+			String stringBandId = request.getParameter("bandId");
+			try { 
+		        Integer.parseInt(stringBandId); 
+		    } catch(NumberFormatException e) { 
+		    	getServletContext().getRequestDispatcher("/pepBandNoBandIdError.jsp").forward(request, response);
+		    } catch(NullPointerException e) {
+		    	getServletContext().getRequestDispatcher("/pepBandNoBandIdError.jsp").forward(request, response);
+		    }
 			Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 			PepBand pepBandToDelete = pbh.searchForPepBandById(tempId);
 

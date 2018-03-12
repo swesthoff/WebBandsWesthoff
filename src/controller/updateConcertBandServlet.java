@@ -41,7 +41,17 @@ public class updateConcertBandServlet extends HttpServlet {
 		BandHelper dao = new BandHelper();
 		String nameOfBand = request.getParameter("nameOfBand");
 		String locationOfBand = request.getParameter("locationOfBand");
-		Integer numberOfMembers = Integer.parseInt(request.getParameter("numberOfMembers"));
+		String stringNumberOfMembers = request.getParameter("numberOfMembers");
+//		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
+		try { 
+	        Integer.parseInt(stringNumberOfMembers); 
+	    } catch(NumberFormatException e) { 
+	    	getServletContext().getRequestDispatcher("/concertBandNumericError.jsp").forward(request, response);
+	    } catch(NullPointerException e) {
+	    	getServletContext().getRequestDispatcher("/concertBandNumericError.jsp").forward(request, response);
+	    }
+		int numberOfMembers = Integer.valueOf(stringNumberOfMembers);
+	//	Integer numberOfMembers = Integer.parseInt(request.getParameter("numberOfMembers"));
 		Integer levelOfBand = Integer.parseInt(request.getParameter("levelOfBand"));
 	//	String levelOfBand = request.getParameter("levelOfBand");
 		Integer tempId = Integer.parseInt(request.getParameter("bandId"));

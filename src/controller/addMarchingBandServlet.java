@@ -44,9 +44,15 @@ public class addMarchingBandServlet extends HttpServlet {
 		
 		String stringNumberOfMembers = request.getParameter("numberOfMembers");
 		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
+		
+		try { 
+	        Integer.parseInt(stringNumberOfMembers); 
+	    } catch(NumberFormatException e) { 
+	    	getServletContext().getRequestDispatcher("/marchingBandNumericError.jsp").forward(request, response);
+	    } catch(NullPointerException e) {
+	    	getServletContext().getRequestDispatcher("/marchingBandNumericError.jsp").forward(request, response);
+	    }
 		int numberOfMembers = Integer.valueOf(stringNumberOfMembers);
-		
-		
 		String locationOfBand = request.getParameter("locationOfBand");
 		System.out.println("Location: " + locationOfBand);
 //		String stringCostOfParticipation = request.getParameter("stringCostOfParticipation");
@@ -76,7 +82,7 @@ public class addMarchingBandServlet extends HttpServlet {
 //		double costOfParticipation = Double.valueOf(stringCostOfParticipation);
 	//	int levelOfBand = Integer.valueOf(stringLevelOfBand);
 	//	String bandType = request.getParameter("bandType");
-	
+		
 		
 	
 		MarchingBand marchingBand = new MarchingBand(numberOfMembers, nameOfBand, locationOfBand, levelOfBand,hasProps, typesOfProps, hasColorGuard);

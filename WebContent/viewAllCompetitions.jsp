@@ -5,8 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
 <title>View All Competitions</title>
 </head>
+<style>
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate;
+	border-spacing: 2px;
+	padding: 2px;
+}
+
+
+</style>
 <body>
 	<form method="post" action="editCompetitionServlet">
 		<table>
@@ -19,7 +30,7 @@
 				<tr>
 			<!-- 	<td><input type="radio" name="competitionId" value="${currentitem.competitionId}"></td>  -->	
 					<td>${currentitem.getCompetitionName()}</td>
-					<td>${currentitem.bandId}</td> 
+					<td>${currentitem.getBandName()}</td> 
 				</tr>
 			</c:forEach>
 		</table>
@@ -27,6 +38,6 @@
 			name="doThisToCompetition"><br /> <br />
 	</form>
 	<br />
-	<a href="index.html">Main Menu</a>
+	<a href="index.html">Return to Main Menu</a>
 </body>
 </html>

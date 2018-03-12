@@ -43,11 +43,23 @@ public class updateMarchingBandServlet extends HttpServlet {
 		String locationOfBand = request.getParameter("locationOfBand");
 	
 		String typesOfProps = request.getParameter("typesOfProps");
+	
+		boolean hasColorGuard = Boolean.parseBoolean(request.getParameter("hasColorGuard"));
 		System.out.println(" to update props " + typesOfProps + " name: " + nameOfBand + " location: " + locationOfBand);
 		
 		String stringBandId = request.getParameter("bandId");
 		System.out.println(" to update3 " + stringBandId);
-	
+		String stringNumberOfMembers = request.getParameter("numberOfMembers");
+		try { 
+	        Integer.parseInt(stringNumberOfMembers); 
+	    } catch(NumberFormatException e) { 
+	    	getServletContext().getRequestDispatcher("/marchingBandNumericError.jsp").forward(request, response);
+	    } catch(NullPointerException e) {
+	    	getServletContext().getRequestDispatcher("/marchingBandNumericError.jsp").forward(request, response);
+	    }
+		Integer numberOfMembers = Integer.parseInt(request.getParameter("numberOfMembers"));
+		Integer levelOfBand = Integer.parseInt(request.getParameter("levelOfBand"));
+		
 		Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 		System.out.println(" to update 2 " + tempId);
 		MarchingBand marchingBandToUpdate = dao.searchForMarchingBandById(tempId);
@@ -55,6 +67,10 @@ public class updateMarchingBandServlet extends HttpServlet {
 		marchingBandToUpdate.setLocationOfBand(locationOfBand);
 		
 		marchingBandToUpdate.setTypesOfProps(typesOfProps);
+		marchingBandToUpdate.setNumberOfMembers(numberOfMembers);
+		marchingBandToUpdate.setLevelOfBand(levelOfBand);
+		marchingBandToUpdate.setCostOfParticipation(numberOfMembers, levelOfBand);
+		marchingBandToUpdate.setNumberOfBuses(typesOfProps,hasColorGuard);
 		System.out.println(" to update 3 " + tempId);
 //		bandToUpdate.setNumberOfMembers(numberOfMembers);
 		dao.updateMarchingBand(marchingBandToUpdate);

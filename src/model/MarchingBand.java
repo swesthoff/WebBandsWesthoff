@@ -123,6 +123,12 @@ public class MarchingBand extends Bands {
 		this.hasColorGuard = hasColorGuard;
 
 	}
+    
+	
+	
+	public void setNumberOfBuses(String typeOfProps, boolean hasColorGuard) {
+		 this.numberOfBuses = calcNmbrOfBuses(typesOfProps, hasColorGuard);
+	}
 
 	private int calcNmbrOfBuses(String typeOfProps, boolean hasColorGuard) {
 		// TODO Auto-generated method stub

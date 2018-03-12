@@ -10,14 +10,25 @@
 <body>
 <form action="updatePepBandServlet" method="post">
 	
-	Band Name: <input type="text" name="nameOfBand" value="${pepBandToEdit.nameOfBand }"> 
- 		Band Location: <input type="text" name="locationOfBand"	value="${pepBandToEdit.locationOfBand }"> 
+	Band Name: <input type="text" name="nameOfBand" value="${pepBandToEdit.nameOfBand }"> <br />
+ 		Band Location: <input type="text" name="locationOfBand"	value="${pepBandToEdit.locationOfBand }"> <br />
+	
+		 Number of Members: <input type="text" name="numberOfMembers"	value="${pepBandToEdit.numberOfMembers }"> <br />
+ 	
+ 		
+ 			Level Of Band <select name="levelOfBand">
+		
+		   <option value=1>Elementary</option>
+         <option value=2>Junior High</option> 
+             <option value=3>High School</option> 
+		  </select>
+	   
 	
 		Playing Position: <select name="playingPosition">
 		
 		   <option value="Standing">Standing</option>
          <option value="Sitting">Sitting</option> 
-		  </select>
+		  </select><br />
 		
  		 <select name='playingPosition'>
     <option value="${selected}" selected>${selected}</option>
@@ -26,7 +37,7 @@
             <option value="${playingPosition}">${playingPosition}</option>
         </c:if>
     </c:forEach>
-</select>
+</select><br />
  		 
  		 
  		 
@@ -41,8 +52,8 @@
          <option value="6">District Finals</option>
          <option value="7">Red Ribbon Week</option>
      
-        </select>
-	   
+        </select><br />
+	   <br />
 	   <input	type="hidden" name="bandId" value="${pepBandToEdit.bandId }"> <br />
 		<input type="submit" value="Edit Selected Pep Band">
 	</form>

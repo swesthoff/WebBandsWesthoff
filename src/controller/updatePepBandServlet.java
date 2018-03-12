@@ -46,6 +46,20 @@ public class updatePepBandServlet extends HttpServlet {
 		String playingPosition = request.getParameter("playingPosition");
 		System.out.println(" to update  " + playingPosition);
 		Integer eventId = Integer.parseInt(request.getParameter("eventId"));
+		
+		String stringNumberOfMembers = request.getParameter("numberOfMembers");
+		System.out.println("String nmbr of mumber: " + stringNumberOfMembers);
+		
+		try { 
+	        Integer.parseInt(stringNumberOfMembers); 
+	    } catch(NumberFormatException e) { 
+	    	getServletContext().getRequestDispatcher("/pepBandNumericError.jsp").forward(request, response);
+	    } catch(NullPointerException e) {
+	    	getServletContext().getRequestDispatcher("/pepBandNumericError.jsp").forward(request, response);
+	    }
+		int numberOfMembers = Integer.valueOf(stringNumberOfMembers);
+		
+		Integer levelOfBand = Integer.parseInt(request.getParameter("levelOfBand"));
 		Integer tempId = Integer.parseInt(request.getParameter("bandId"));
 		System.out.println(" to update 2 " + tempId);
 		PepBand pepBandToUpdate = dao.searchForPepBandById(tempId);
@@ -56,7 +70,9 @@ public class updatePepBandServlet extends HttpServlet {
 		pepBandToUpdate.setEventId(eventId);
 		pepBandToUpdate.setNameOfBand(nameOfBand);
 		pepBandToUpdate.setLocationOfBand(locationOfBand);
-		
+		pepBandToUpdate.setNumberOfMembers(numberOfMembers);
+		pepBandToUpdate.setLevelOfBand(levelOfBand);
+		pepBandToUpdate.setCostOfParticipation(numberOfMembers, levelOfBand);
 		dao.updatePepBand(pepBandToUpdate);
 		getServletContext().getRequestDispatcher("/viewPepBandServlet").forward(request, response);
 	}

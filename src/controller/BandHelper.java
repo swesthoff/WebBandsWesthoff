@@ -36,7 +36,22 @@ public class BandHelper {
 		return allBands;
 
 	}
+	public List<Bands> showAllMarchingBands() {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		// creates the query but does not execute it.
+		TypedQuery<Bands> allMBResults = em.createQuery("Select li from Bands li where li.bandType = 'Marching'", Bands.class);
+		// Selects the info
+		List<Bands> allMarchingBands = allMBResults.getResultList();
+		// need to close the entity manager
+		em.close();
 
+		return allMarchingBands;
+
+	}
+	
+	
+	
 	public void deleteBand(Bands toDelete) {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
@@ -65,6 +80,19 @@ public class BandHelper {
 		em.getTransaction().begin();
 
 		Bands foundItem = em.find(Bands.class, idToEdit);
+		em.close(); // close
+		// return the results of the query
+		return foundItem;
+	}
+
+	
+	public Bands searchForBandNameById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+
+		Bands foundItem = em.find(Bands.class, idToEdit);
+		System.out.println("found Item " + foundItem);
 		em.close(); // close
 		// return the results of the query
 		return foundItem;
