@@ -38,15 +38,21 @@ public class viewCompetitionServlet extends HttpServlet {
 		
 		BandHelper bh = new BandHelper();
 		request.setAttribute("allMarchingBands", bh.showAllMarchingBands());
-		System.out.println("View Competition search for band name BF"  );
+//		request.setAttribute("allPartBands", bh.showAllPartBands());
+
+		System.out.println("View Competition search for band name PART BANDS"  );
+	//	if(bh.showAllPartBands().isEmpty()) {
 		if(bh.showAllMarchingBands().isEmpty()) {
+				
 			System.out.println("Competition - band name empty!!!");
-		//	getServletContext().getRequestDispatcher("/addCompetition.html").forward(request, response);
 			
 		}
 		
+		
 		System.out.println("Competition -  2" + ch.showAllCompetitions());
 		System.out.println("Competition -  search for 2" + bh.showAllMarchingBands());
+		//System.out.println("Competition -  search for 2" + bh.showAllPartBands());
+		
 		getServletContext().getRequestDispatcher("/viewAllCompetitions.jsp").forward(request, response);
 		System.out.println("Competition - after");
 	}

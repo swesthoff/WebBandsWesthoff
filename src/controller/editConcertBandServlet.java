@@ -63,6 +63,11 @@ public class editConcertBandServlet extends HttpServlet {
 			Bands bandToEdit = bh.searchForBandById(tempId);
 			System.out.println("Concert Band to Edit: " + bandToEdit);
 			request.setAttribute("concertBandToEdit", bandToEdit);
+			
+			int selectedLevelOfBand = 2; // Or "cat" or whatever you'd like.
+			request.setAttribute("selectedLevelOfBand", selectedLevelOfBand);
+			System.out.println("Concert Band: Selected Level of Band: " + selectedLevelOfBand);
+			
 			getServletContext().getRequestDispatcher("/editConcertBand.jsp").forward(request, response);
 		} else if (act.equals("Delete Selected Concert Band")) {
 			String stringBandId = request.getParameter("bandId");
