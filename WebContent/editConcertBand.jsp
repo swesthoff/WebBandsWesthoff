@@ -5,9 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
 <title>Edit Concert Band</title>
 </head>
 <body>
+<h2> Edit Concert Band</h2>
 	<form action="updateConcertBandServlet" method="post">
 		Band Name: <input type="text" name="nameOfBand" value="${concertBandToEdit.nameOfBand }"> <br />
  		Band Location: <input type="text" name="locationOfBand"	value="${concertBandToEdit.locationOfBand }"> <br />
@@ -23,7 +25,7 @@
 		
 		
 		
-		LEVEL OF BAND: <select name="levelOfBand1">
+<!--  		LEVEL OF BAND: <select name="levelOfBand1">
     <c:forEach items="${levelOfBand2}" var="levelOfBand2">
         <option value="${levelOfBand2}" ${levelOfBand2 == selectedLevelOfBand ? 'selected' : ''}>${levelOfBand2}</option>
     </c:forEach>
@@ -53,14 +55,16 @@
     <c:forEach items="${roleNames}" var="role">
         <option value="${role}" ${role == selectedRole ? 'selected' : ''}>${role}</option>
     </c:forEach>
+</select>
 -->
 
-</select>
-		
+	
 		
  		<br />
 	   <input	type="hidden" name="bandId" value="${concertBandToEdit.bandId }"> <br /><br />
 		<input type="submit" value="Save Edited Concert Band">
 	</form>
+	
+	<br><a href="index.html"> Back to Main Menu</a></br>
 </body>
 </html>

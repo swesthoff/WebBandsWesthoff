@@ -54,11 +54,12 @@ public class BandHelper {
 //select a.name_of_band, b.band_id from band a, participating_bands b where a.band_id = b.band_id;
 	//select * from band where band_type = 'partBands';
 	
+	// https://www.objectdb.com/java/jpa/query/jpql/from
 	public List<Bands> showAllPartBands() {
 		// TODO Auto-generated method stub
 		EntityManager em = emfactory.createEntityManager();
 		// creates the query but does not execute it.
-		TypedQuery<Bands> allPBResults = em.createQuery("Select li from Bands li where li.bandType = 'partBands'", Bands.class);
+		TypedQuery<Bands> allPBResults = em.createQuery("Select li, pb from Bands li, participating_bands pb  where li.bandType = 'partBands' and li band_id of pb.band_id", Bands.class);
 		// Selects the info
 		List<Bands> allPartBands = allPBResults.getResultList();
 		// need to close the entity manager

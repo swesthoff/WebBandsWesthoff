@@ -19,20 +19,22 @@ table, td, th {
 
 </style>
 <body>
+
+<h2> View Competition List</h2>
 	<form method="post" action="editCompetitionServlet">
 		<table>
 		<tr> 
-			<th> </th>
+		
 			<th>Competition ID</th>
 			<th>Band ID</th> 
-			<th>Band Name</th>
+	<!--		<th>Band Name</th> -->
 		</tr>
 			<c:forEach items="${requestScope.allCompetitions}" var="currentitem">
 				<tr>
-			 	<td><input type="radio" name="competitionId" value="${currentitem.competitionId}"></td>  	
+		<!--  	<td><input type="radio" name="competitionId" value="${currentitem.competitionId}"></td>  	 -->	
 					<td>${currentitem.getCompetitionName()}</td>
 					<td>${currentitem.bandId }</td>
-					<td>${currentitem.getBandName()}</td> 
+		<!--			<td>${currentitem.getBandName()}</td> -->
 				</tr>
 			</c:forEach>
 		</table>

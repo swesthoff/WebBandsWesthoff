@@ -5,9 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
+
 <title>Update Pep Band </title>
 </head>
 <body>
+<h2> Edit Pep Band</h2>
 <form action="updatePepBandServlet" method="post">
 	
 	Band Name: <input type="text" name="nameOfBand" value="${pepBandToEdit.nameOfBand }"> <br />
@@ -22,7 +25,7 @@
          <option value=2>Junior High</option> 
              <option value=3>High School</option> 
 		  </select>
-	   
+	   <br />
 	
 		Playing Position: <select name="playingPosition">
 		
@@ -30,7 +33,7 @@
          <option value="Sitting">Sitting</option> 
 		  </select><br />
 		
- 		 <select name='playingPosition'>
+ <!-- 	 <select name='playingPosition'>
     <option value="${selected}" selected>${selected}</option>
     <c:forEach items="${playingPosition}" var="playingPosition">
         <c:if test="${playingPosition != selected}">
@@ -39,7 +42,7 @@
     </c:forEach>
 </select><br />
  		 
- 		 
+ 		 -->	 
  		 
  		 
  		 
@@ -53,9 +56,11 @@
          <option value="7">Red Ribbon Week</option>
      
         </select><br />
-	   <br />
+	
 	   <input	type="hidden" name="bandId" value="${pepBandToEdit.bandId }"> <br />
 		<input type="submit" value="Edit Selected Pep Band">
 	</form>
+	</br>
+	 		<br><a href="index.html"> Back to Main Menu</a></br>
 </body>
 </html>

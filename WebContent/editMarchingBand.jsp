@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
+<title>Edit Marching Band</title>
 </head>
 <body>
+<h2> Edit Marching Band</h2>
 <form action="updateMarchingBandServlet" method="post">
 		
 		Band Name: <input type="text" name="nameOfBand" value="${marchingBandToEdit.nameOfBand }"> <br />
@@ -31,9 +33,11 @@
              <option value=3>High School</option> 
 		  </select>
 	   
-	   
+	   <br></br>
 	   <input	type="hidden" name="bandId" value="${marchingBandToEdit.bandId }"> <br />
 		<input type="submit" value="Save Edited Marching Band">
+	 <br></br>
+			<br><a href="index.html"> Back to Main Menu</a></br>
 	</form>
 </body>
 </html>

@@ -9,12 +9,12 @@ h1 {
 }
 
 h2 {
-	color: #ff8000;
+	color: blue;
 }
 
 img {
     border: 1px solid #ddd;
-    border-radius: 50%;
+    border-radius: 150%;
     padding: 5px;
     width: 150px;
 }
